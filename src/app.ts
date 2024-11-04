@@ -1,9 +1,13 @@
 import express from "express";
 import authRouter from "./routers/auth";
 import errorHandling from "./middlewares/errorHandling";
+import dotnev from "dotenv";
+import cookieParser from "cookie-parser";
+dotnev.config();
 
 const app: express.Application = express();
 
+app.use(cookieParser("secret"));
 app.use(express.json());
 
 app.get("/", function (req, res) {
@@ -11,7 +15,6 @@ app.get("/", function (req, res) {
 });
 
 app.use(authRouter);
-
 app.use(errorHandling);
 
 export default app;

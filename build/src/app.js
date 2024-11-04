@@ -6,7 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const auth_1 = __importDefault(require("./routers/auth"));
 const errorHandling_1 = __importDefault(require("./middlewares/errorHandling"));
+const dotenv_1 = __importDefault(require("dotenv"));
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
+dotenv_1.default.config();
 const app = (0, express_1.default)();
+app.use((0, cookie_parser_1.default)("secret"));
 app.use(express_1.default.json());
 app.get("/", function (req, res) {
     res.send("server mlaku");
