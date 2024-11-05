@@ -6,12 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const SetoranKeluarCol = new mongoose_1.default.Schema({
     tabungan_keluar: {
-        type: String,
-        required: true,
-    },
-    total_setoran: {
         type: Number,
-        default: 0,
+        required: true,
     },
     tanggal_setoran_keluar: {
         type: String,

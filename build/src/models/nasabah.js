@@ -12,8 +12,8 @@ const nasabahSchema = new mongoose_1.default.Schema({
         required: true,
     },
     total_tabungan: {
-        type: String,
-        required: true,
+        type: Number,
+        default: 0,
     },
     total_setoran: {
         type: Number,

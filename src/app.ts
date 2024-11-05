@@ -4,6 +4,7 @@ import errorHandling from "./middlewares/errorHandling";
 import dotnev from "dotenv";
 import cookieParser from "cookie-parser";
 import checkDBRouter from "./routers/checkDB";
+import adminRouter from "./routers/admin";
 dotnev.config();
 
 const app: express.Application = express();
@@ -16,6 +17,7 @@ app.get("/", function (req, res) {
 });
 
 app.use(authRouter);
+app.use(adminRouter);
 app.use(checkDBRouter);
 app.use(errorHandling);
 

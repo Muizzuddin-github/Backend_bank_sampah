@@ -8,8 +8,8 @@ const nasabahSchema = new mongoose.Schema({
     required: true,
   },
   total_tabungan: {
-    type: String,
-    required: true,
+    type: Number,
+    default: 0,
   },
   total_setoran: {
     type: Number,
