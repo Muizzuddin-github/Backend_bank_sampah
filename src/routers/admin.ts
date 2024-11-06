@@ -10,4 +10,6 @@ adminRouter.post(
   adminControl.register
 );
 
+adminRouter.get("/api/admin/nasabah", onlyLogin, adminControl.getAllNasabah);
+
 export default adminRouter;

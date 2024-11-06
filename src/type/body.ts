@@ -11,3 +11,10 @@ export interface LoginAdmin {
 export interface RegisterNasabah {
   nama: string;
 }
+
+export interface SetoranMasukType {
+  tanggal_setoran: string;
+  jenis_sampah: string;
+  jumlah_setoran: number;
+  harga_satuan?: number;
+}

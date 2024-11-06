@@ -8,4 +8,5 @@ const admin_1 = __importDefault(require("../controllers/admin"));
 const onlyLogin_1 = __importDefault(require("../middlewares/onlyLogin"));
 const adminRouter = express_1.default.Router();
 adminRouter.post("/api/admin/nasabah/register", onlyLogin_1.default, admin_1.default.register);
+adminRouter.get("/api/admin/nasabah", onlyLogin_1.default, admin_1.default.getAllNasabah);
 exports.default = adminRouter;

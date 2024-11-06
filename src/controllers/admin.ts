@@ -27,6 +27,27 @@ const adminControl = {
       next(error);
     }
   },
+
+  async getAllNasabah(req: Request, res: Response, next: NextFunction) {
+    try {
+      const nasabah: NasabahColType[] = await NasabahCol.aggregate([
+        {
+          $sort: {
+            nama: 1,
+          },
+        },
+        {
+          $project: {
+            setoran_keluar: 0,
+          },
+        },
+      ]);
+
+      res.status(200).json({ message: "Semua data nasabah", data: nasabah });
+    } catch (error) {
+      next(error);
+    }
+  },
 };
 
 export default adminControl;

@@ -10,8 +10,11 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const checkDB_1 = __importDefault(require("./routers/checkDB"));
 const admin_1 = __importDefault(require("./routers/admin"));
+const setoran_masuk_1 = __importDefault(require("./routers/setoran_masuk"));
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 app.use((0, cookie_parser_1.default)("secret"));
 app.use(express_1.default.json());
 app.get("/", function (req, res) {
@@ -19,6 +22,7 @@ app.get("/", function (req, res) {
 });
 app.use(auth_1.default);
 app.use(admin_1.default);
+app.use(setoran_masuk_1.default);
 app.use(checkDB_1.default);
 app.use(errorHandling_1.default);
 exports.default = app;

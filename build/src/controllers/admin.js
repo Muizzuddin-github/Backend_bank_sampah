@@ -36,5 +36,27 @@ const adminControl = {
             }
         });
     },
+    getAllNasabah(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const nasabah = yield nasabah_2.default.aggregate([
+                    {
+                        $sort: {
+                            nama: 1,
+                        },
+                    },
+                    {
+                        $project: {
+                            setoran_keluar: 0,
+                        },
+                    },
+                ]);
+                res.status(200).json({ message: "Semua data nasabah", data: nasabah });
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    },
 };
 exports.default = adminControl;
